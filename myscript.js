@@ -9,18 +9,33 @@ window.onload = function () {
 
 var randomNumber = Math.floor(Math.random() * 100) + 1;
 
-const resetGame = () => {
-  returnResult.innerHTML = '';
-  randomNumber = Math.floor(Math.random() * 100) + 1;
-  returnHistory.innerHTML = '';
-};
+var historyArray = [];
 
 const playGame = () => {
-  var createHistoryElement = document.createElement('div');
-  createHistoryElement.classList.add('list-group-item');
-  createHistoryElement.innerText = 'You guessed ' + getInputValue.value;
-  returnHistory.append(createHistoryElement);
+  //   var createHistoryElement = document.createElement('div');
+  //   createHistoryElement.classList.add('list-group-item');
+  //   createHistoryElement.innerText = 'You guessed ' + getInputValue.value;
+  //   returnHistory.append(createHistoryElement);
 
+  historyArray.push(getInputValue.value);
+
+  var index = historyArray.length - 1;
+  var list = "<ul class='list-group'>";
+  while (index >= 0) {
+    list +=
+      '<li  class="list-group-item">' +
+      'You guessed ' +
+      historyArray[index] +
+      '</li>';
+
+    index -= 1;
+  }
+
+  list += '</ul>';
+
+  returnHistory.innerHTML = list;
+
+  console.log(historyArray);
   if (getInputValue.value === '') {
     returnResult.innerHTML =
       '<div class="alert alert-danger">Please Enter no</div>';
@@ -39,4 +54,10 @@ const playGame = () => {
         '<div class="alert alert-success">Awesome job, you got it!</div>';
     }
   }
+};
+const resetGame = () => {
+  returnResult.innerHTML = '';
+  randomNumber = Math.floor(Math.random() * 100) + 1;
+  returnHistory.innerHTML = '';
+  historyArray = [];
 };
