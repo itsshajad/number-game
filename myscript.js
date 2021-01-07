@@ -1,6 +1,6 @@
-var getInputValue = document.getElementById('number-guess');
-var returnResult = document.getElementById('result');
-var returnHistory = document.getElementById('history');
+var getInputValue = document.getElementById('inputValue');
+var returnResult = document.getElementById('currentResult');
+var returnHistory = document.getElementById('resultHistory');
 
 window.onload = function () {
   document.getElementById('number-submit').addEventListener('click', playGame);
@@ -12,28 +12,28 @@ var randomNumber = Math.floor(Math.random() * 100) + 1;
 var historyArray = [];
 
 const playGame = () => {
-  //   var createHistoryElement = document.createElement('div');
-  //   createHistoryElement.classList.add('list-group-item');
-  //   createHistoryElement.innerText = 'You guessed ' + getInputValue.value;
-  //   returnHistory.append(createHistoryElement);
+  var createHistoryElement = document.createElement('div');
+  createHistoryElement.classList.add('list-group-item');
+  createHistoryElement.innerText = 'You guessed ' + getInputValue.value;
+  returnHistory.append(createHistoryElement);
 
   historyArray.push(getInputValue.value);
 
-  var index = historyArray.length - 1;
-  var list = "<ul class='list-group'>";
-  while (index >= 0) {
-    list +=
-      '<li  class="list-group-item">' +
-      'You guessed ' +
-      historyArray[index] +
-      '</li>';
+  // var index = historyArray.length - 1;
+  // var list = "<ul class='list-group'>";
+  // while (index >= 0) {
+  //   list +=
+  //     '<li  class="list-group-item">' +
+  //     'You guessed ' +
+  //     historyArray[index] +
+  //     '</li>';
 
-    index -= 1;
-  }
+  //   index -= 1;
+  // }
 
-  list += '</ul>';
+  // list += '</ul>';
 
-  returnHistory.innerHTML = list;
+  // returnHistory.innerHTML = list;
 
   console.log(historyArray);
   if (getInputValue.value === '') {
@@ -55,6 +55,7 @@ const playGame = () => {
     }
   }
 };
+
 const resetGame = () => {
   returnResult.innerHTML = '';
   randomNumber = Math.floor(Math.random() * 100) + 1;

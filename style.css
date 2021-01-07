@@ -1,11 +1,11 @@
-#number-guess,
-#result,
-#history {
+#inputValue,
+#currentResult,
+#resultHistory {
   max-width: 400px;
   margin: 0 auto;
 }
 
-#history {
+#resultHistory {
   margin-top: 16px;
 }
 

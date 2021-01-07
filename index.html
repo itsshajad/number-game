@@ -10,7 +10,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="script.js"></script>
   </head>
   <body class="text-center">
     <nav class="navbar navbar-dark bg-dark">
@@ -21,13 +20,13 @@
       <p class="banner p-3">Number Game</p>
       <div class="form-group">
         <input
-          id="number-guess"
+          id="inputValue"
           class="form-control form-control-lg"
           type="number"
           placeholder="What's your guess?"
         />
       </div>
-      <div id="result">
+      <div id="currentResult">
         <!-- This is where the result will be-->
       </div>
       <button type="button" id="number-submit" class="btn btn-lg btn-secondary">
@@ -36,7 +35,7 @@
       <button type="button" id="restart-game" class="btn btn-lg btn-light">
         Restart
       </button>
-      <div id="history">
+      <div id="resultHistory">
         <!-- This is where the guess history will be-->
       </div>
     </main>
